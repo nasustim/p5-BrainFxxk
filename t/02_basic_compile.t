@@ -8,6 +8,6 @@ my $got = Acme::Nasustim::BrainFxxk->new(+{
 })->out;
 my $expect = 'ABC';
 
-is $got, $expect, 'validate +(increment) and outout(.)';
+is $got, $expect, 'validate +(increment) and .(output)';
 
 done_testing;

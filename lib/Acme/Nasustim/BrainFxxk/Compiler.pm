@@ -62,27 +62,29 @@ sub interpret {
             $self->{pointer} = \@new_pointer;
         }
         case '<' {
-            $self->{index}--;
+            $self->{index}-- unless ($self->{index} < 0);
         }
         case '.' {
             $self->{output} .= chr $self->{pointer}->[$address];
         }
         case ',' {
             my $buf = <STDIN>;
-            $char = substr chomp($buf), 0, 1;
+            $char = substr $buf, 0, 1;
             $self->{pointer}->[$address] = ord $char;
         }
         case '[' {
             if (0 == $self->{pointer}->[$address]) {
+                my @_code = split //, $self->{code};
                 do {
                     $self->{code_index}++;
-                } while ( $self->{code_index} ne ']' );
+                } while ( $_code[$self->{code_index}] ne ']' );
             }
         }
         case ']' {
             unless (0 == $self->{pointer}->[$address]) {
-                while ( $self->{code_index} ne '[' ) {
-                    $self->{code_index}++;
+                my @_code = split //, $self->{code};
+                while ( $_code[$self->{code_index}] ne '[' ) {
+                    $self->{code_index}--;
                 }
             }
         }
