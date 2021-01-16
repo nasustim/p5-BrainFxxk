@@ -42,6 +42,10 @@
       },
       "runtime" : {
          "requires" : {
+            "Data::Printer" : "0",
+            "Exporter::Lite" : "0",
+            "List::AllUtils" : "0",
+            "Mouse" : "0",
             "perl" : "5.008001"
          }
       },
@@ -53,6 +57,9 @@
    },
    "release_status" : "unstable",
    "version" : "0.01",
+   "x_contributors" : [
+      "nasustim <hibino17@iamas.ac.jp>"
+   ],
    "x_serialization_backend" : "JSON::PP version 2.97001",
    "x_static_install" : 1
 }

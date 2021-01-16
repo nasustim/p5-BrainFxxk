@@ -3,9 +3,19 @@ use 5.008001;
 use strict;
 use warnings;
 
+use Acme::Nasustim::BrainFxxk::Compiler;
+
 our $VERSION = "0.01";
+our @EXPORT = qw|create|;
 
+sub new {
+    my ($self, $args) = @_;
+    my $code = $args->{code};
 
+    return Acme::Nasustim::BrainFxxk::Compiler->new(+{
+        code => $code,
+    });
+};
 
 1;
 __END__
@@ -20,9 +30,14 @@ Acme::Nasustim::BrainFxxk - It's new $module
 
     use Acme::Nasustim::BrainFxxk;
 
+=head1 DEVELOPMENT
+
+    $ carton install
+    $ carton exec -- prove -Ilib t
+
 =head1 DESCRIPTION
 
-Acme::Nasustim::BrainFxxk is ...
+Acme::Nasustim::BrainFxxk is compiler of L<brainfxxk|https://en.wikipedia.org/wiki/Brainfuck>|.
 
 =head1 LICENSE
 
