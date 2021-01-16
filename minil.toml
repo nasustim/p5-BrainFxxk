@@ -1,0 +1,5 @@
+name = "Acme-Nasustim-BrainFxxk"
+# badges = ["travis-ci.com"]
+module_maker="ModuleBuildTiny"
+static_install = "auto"
+
