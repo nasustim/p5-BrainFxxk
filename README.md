@@ -8,7 +8,15 @@ Acme::Nasustim::BrainFxxk - It's new $module
 
 # DESCRIPTION
 
-Acme::Nasustim::BrainFxxk is ...
+Acme::Nasustim::BrainFxxk is compiler of [brainfxxk](https://en.wikipedia.org/wiki/Brainfuck).
+
+# DEVELOPMENT
+
+    $ carton install
+    install depending packages.
+
+    $ carton exec -- prove -Ilib t
+    run tests
 
 # LICENSE
 

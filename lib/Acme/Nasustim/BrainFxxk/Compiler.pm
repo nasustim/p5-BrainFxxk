@@ -1,7 +1,9 @@
 package Acme::Nasustim::BrainFxxk::Compiler;
 
 use Mouse;
+
 use Switch;
+use Clone qw|clone|;
 
 has code => (
     is  => 'ro',
@@ -58,8 +60,7 @@ sub interpret {
         }
         case '>' {
             $self->{index}++;
-            my @new_pointer = push(@{$self->{pointer}}, 0) if ($self->{index} >= scalar(@{$self->{pointer}}));
-            $self->{pointer} = \@new_pointer;
+            push(@{$self->{pointer}}, 0) if ($self->{index} >= scalar(@{$self->{pointer}}));
         }
         case '<' {
             $self->{index}-- unless ($self->{index} < 0);
@@ -75,9 +76,9 @@ sub interpret {
         case '[' {
             if (0 == $self->{pointer}->[$address]) {
                 my @_code = split //, $self->{code};
-                do {
+                while ( $_code[$self->{code_index}] ne ']' ) {
                     $self->{code_index}++;
-                } while ( $_code[$self->{code_index}] ne ']' );
+                }
             }
         }
         case ']' {

@@ -37,7 +37,7 @@ Acme::Nasustim::BrainFxxk - It's new $module
 
 =head1 DESCRIPTION
 
-Acme::Nasustim::BrainFxxk is compiler of L<brainfxxk|https://en.wikipedia.org/wiki/Brainfuck>|.
+Acme::Nasustim::BrainFxxk is compiler of L<brainfxxk|https://en.wikipedia.org/wiki/Brainfuck>.
 
 =head1 LICENSE
 
